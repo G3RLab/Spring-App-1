@@ -1,4 +1,3 @@
-RUN echo 'Processing Dockerfile...'
 #
 # The FROM keyword defines the base Docker image of our container.
 # OpenJDK installed on Alpine Linux which is chosen which is a lightweight Linux distribution.
@@ -16,5 +15,3 @@ ADD /target/Spring-App-1-0.0.1-SNAPSHOT.jar app.jar
 # The additional flag java.security.edg=file:/dev/./urandom is used to speed up the application start-up and avoid possible freezes.
 # By default, Java uses /dev/random to seed its SecureRandom class which is known to block if its entropy pool is empty.
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
-
-RUN echo 'Dockerfile processed.'
