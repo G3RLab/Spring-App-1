@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: gplab-gke
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: spring-app-1
+    spec:
+      containers:
+      - name: spring-app-1
+        image: registry.gitlab.com/g3rlab/spring-app-1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: registry.gitlab.com
