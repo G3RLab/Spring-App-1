@@ -21,9 +21,11 @@ maven-build:
 
 docker-build:
   stage: package
+  variables:
+    CI_DEBUG_TRACE: "true"
   script:
-  - docker build -t registry.gitlab.com/g3rlab/spring-app-1 .
   - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
+  - docker build -t registry.gitlab.com/g3rlab/spring-app-1 .
   - docker push registry.gitlab.com/g3rlab/spring-app-1
 
 k8s-deploy:
