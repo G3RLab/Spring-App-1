@@ -9,7 +9,7 @@ FROM openjdk:8u111-jdk-alpine
 VOLUME /tmp
 
 # ADD copies the executable JAR generated during the build to the container root directory
-ADD /target/Spring-App-1-0.0.1-SNAPSHOT.jar app.jar
+ADD /tmp/build/target/Spring-App-1-0.0.1-SNAPSHOT.jar app.jar
 
 # ENTRYPOINT defines the command to execute when the container is started. Since Spring Boot produces an executable JAR with
 # embedded Tomcat, the command to execute is simply java -jar app.jar.
