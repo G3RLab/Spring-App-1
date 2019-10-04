@@ -4,12 +4,13 @@ body {
 .starter-template {
   padding: 3rem 1.5rem;
   text-align: center;
+  align-content: center;
 }
 
 h1{
-	color:#0000FF;
+	color:#FF0000;
 }
 
 h2{
-	color:#FF0000;
+	color:#FF33FF;
 }
