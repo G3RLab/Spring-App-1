@@ -5,7 +5,6 @@ services:
 variables:
   DOCKER_DRIVER: overlay
   SPRING_PROFILES_ACTIVE: gitlab-ci
-  CI_DEBUG_TRACE: "true"
 
 stages:
 - build
@@ -23,8 +22,8 @@ maven-build:
 docker-build:
   stage: package
   script:
-  - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
   - docker build -t registry.gitlab.com/g3rlab/spring-app-1 .
+  - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
   - docker push registry.gitlab.com/g3rlab/spring-app-1
 
 k8s-deploy:
