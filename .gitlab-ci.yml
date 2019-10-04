@@ -33,9 +33,9 @@ k8s-deploy:
   - echo "$GCLOUD_KEY" > key.json
   - gcloud auth activate-service-account --key-file key.json
   - gcloud config set compute/zone europe-west4-a
-  - gcloud config set project gplab-gke
+  - gcloud config set project "$GCLOUD_PROJECT"
   - gcloud config set container/use_client_certificate True
-  - gcloud container clusters get-credentials gplab-gke
+  - gcloud container clusters get-credentials "$GCLOUD_CLUSTER"
   - kubectl delete secret registry.gitlab.com
   - kubectl create secret docker-registry registry.gitlab.com --docker-server=https://registry.gitlab.com --docker-username=g3rlab --docker-password=$REGISTRY_PASSWD --docker-email=post2ger@gmail.com
   - kubectl apply -f deployment.yml
