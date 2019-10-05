@@ -9,6 +9,7 @@ variables:
 stages:
 - build
 - package
+- registry
 - deploy
 
 maven-build:
@@ -22,9 +23,17 @@ maven-build:
 docker-build:
   stage: package
   script:
-  - docker build -t registry.gitlab.com/g3rlab/spring-app-1 .
+  - docker build -t registry.gitlab.com/g3rlab/$MY_PROJECT .
+  
+gitlab-registry:
+  stage: registry
   - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
-  - docker push registry.gitlab.com/g3rlab/spring-app-1
+  - docker push registry.gitlab.com/$MY_US/$MY_PROJECT$MY_PROJECT_ID
+
+docker-hub:
+  stage: registry
+  - docker login -u $DOCKER_US -p $DOCKER_PW $DOCKER_REGISTRY
+  - docker push $DOCKER_REGISTRY/$MY_US/$MY_PROJECT$MY_PROJECT_ID
 
 k8s-deploy:
   image: google/cloud-sdk
