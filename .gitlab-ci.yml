@@ -26,7 +26,7 @@ docker-build:
   - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
   - docker push registry.gitlab.com/$MY_US/${MY_PROJECT}-${MY_PROJECT_ID}
   - docker login -u $DOCKER_US -p $DOCKER_PW $DOCKER_REGISTRY
-  - docker push $DOCKER_REGISTRY/$MY_US/${MY_PROJECT}-${MY_PROJECT_ID}
+  - docker push $DOCKER_REGISTRY/$MY_US/${MY_PROJECT}
 
 k8s-deploy:
   image: google/cloud-sdk
