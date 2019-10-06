@@ -1,6 +1,6 @@
 image: docker:latest
 services:
-- docker:disba1
+- docker:dind
 
 # Environment variables applied to environments via the runner:
 # 
