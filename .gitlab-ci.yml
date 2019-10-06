@@ -2,7 +2,7 @@ image: docker:latest
 services:
 - docker:disba1
 
-# Environment variables applied to environments via the runner
+# Environment variables applied to environments via the runner:
 # 
 # MY_PROJECT      example: spring-app
 # MY_VERSION      example: 1
