@@ -1,6 +1,20 @@
 image: docker:latest
 services:
-- docker:dind
+- docker:disba1
+
+# Environment variables applied to environments via the runner
+# 
+# MY_PROJECT      example: spring-app
+# MY_VERSION      example: 1
+# MY_US           example: g3rlab
+# DOCKER_EMAIL    
+# DOCKER_US       <docker username>
+# DOCKER_PW       <docker password>
+# DOCKER_REGISTRY example: docker.io
+# GCLOUD_KEY      <public key service account>
+# GCLOUD_CLUSTER  gplab-gke
+# GCLOUD_PROJECT  hale-kite-253908
+# GCLOUD_ZONE     europe-west4-a
 
 variables:
   DOCKER_DRIVER: overlay
