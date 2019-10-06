@@ -5,7 +5,7 @@ services:
 # Environment variables applied to environments via the runner:
 # 
 # MY_PROJECT      example: spring-app
-# MY_VERSION      example: 1
+# MY_PROJECT_ID   example: 1
 # MY_US           example: g3rlab
 # DOCKER_EMAIL    
 # DOCKER_US       <docker username>
